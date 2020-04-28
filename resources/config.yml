@@ -1,4 +1,9 @@
 ---
-#Configure launchpads via id: knockback
+# Configure launchpads
+# Format:
+# BlockLegacyId: BlocksPerTick
+# Keep in mind that a too high value will cause the movement to be reverted by PocketMine
+# Example:
+# Redstone Block: 15 blocks per tick
 152: 15
 ...

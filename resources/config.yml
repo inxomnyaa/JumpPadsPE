@@ -4,6 +4,6 @@
 # BlockLegacyId: BlocksPerTick
 # Keep in mind that a too high value will cause the movement to be reverted by PocketMine
 # Example:
-# Redstone Block: 15 blocks per tick
+# Redstone Block: 15 blocks
 152: 15
 ...

@@ -1,6 +1,6 @@
 name: JumpPadsPE
 main: xenialdan\JumpPadsPE\Loader
-version: 1.4.0
+version: 1.4.1
 api: [3.12.0]
 load: POSTWORLD
 authors: [XenialDan]

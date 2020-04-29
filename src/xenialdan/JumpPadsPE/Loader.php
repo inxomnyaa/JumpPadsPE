@@ -10,6 +10,7 @@ use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\level\particle\FlameParticle;
 use pocketmine\level\particle\RedstoneParticle;
 use pocketmine\level\sound\BlazeShootSound;
+use pocketmine\math\Vector3;
 use pocketmine\plugin\PluginBase;
 
 class Loader extends PluginBase implements Listener
@@ -29,12 +30,12 @@ class Loader extends PluginBase implements Listener
         }
         $block = $player->getLevel()->getBlock($player->floor()->subtract(0, 1));
         if ($this->getConfig()->get($block->getId()) !== false) {
-            $distance = $this->getConfig()->get($block->getId()) / 20;
+            $distance = $this->getConfig()->get($block->getId());
             if (!is_numeric($distance)) {
                 $distance = 5;
             }
-            $mot = $player->getDirectionVector()->normalize()->multiply($distance);
-            $mot->y = 0.5;
+            $motFlat = $player->getDirectionPlane()->normalize()->multiply($distance * 3.75 / 20);//Seems to work almost perfectly
+            $mot = new Vector3($motFlat->x, 0.5, $motFlat->y);
             $player->setMotion($mot);
 
             //$player->getLevel()->broadcastLevelEvent($player->add(0, 0.1), LevelEventPacket::EVENT_PARTICLE_EYE_DESPAWN);//TODO this only shows poof particles in a cross shape.. wtf
